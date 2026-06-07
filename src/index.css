@@ -1,0 +1,372 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-gray-900 text-white font-inter antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+}
+
+@keyframes screen-shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+.trigger-shake {
+  animation: screen-shake 0.5s;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95;
+  }
+
+  .card {
+    @apply bg-gray-800 border border-gray-700 rounded-xl p-5 shadow-lg;
+  }
+
+  .input-field {
+    @apply w-full bg-gray-700 border border-gray-600 text-white rounded-lg px-4 py-2.5 placeholder-gray-400 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors duration-150;
+  }
+
+  .difficulty-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide;
+  }
+}
+
+
+
+/* =========================================
+   MISSING SCREEN SHAKE ANIMATION
+========================================= */
+@keyframes intense-shake {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate(-4px, -4px) rotate(-1.5deg);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate(4px, 4px) rotate(1.5deg);
+  }
+}
+
+.arena-shake {
+  animation: intense-shake 0.4s cubic-bezier(.36, .07, .19, .97) both !important;
+  border: 2px solid rgba(239, 68, 68, 0.4) !important;
+}
+
+/* =========================================
+   UNLOCKABLE THEMES (BULLETPROOF)
+========================================= */
+
+/* 🦇 THE DARK KNIGHT THEME (1000+ Points) */
+body.theme-dark-knight,
+#root.theme-dark-knight,
+#root.theme-dark-knight>div {
+  background-color: #000000 !important;
+  background-image: radial-gradient(circle at top, #111 0%, #000 100%) !important;
+}
+
+body.theme-dark-knight .bg-gray-800\/80,
+body.theme-dark-knight .bg-gray-800\/60,
+body.theme-dark-knight .bg-gray-700\/40 {
+  background-color: #050505 !important;
+  border-color: #222 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9) !important;
+}
+
+body.theme-dark-knight h1 {
+  background-image: linear-gradient(to right, #f59e0b, #fbbf24, #d97706) !important;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.3) !important;
+}
+
+body.theme-dark-knight .from-violet-600 {
+  background-image: linear-gradient(to bottom right, #333, #000) !important;
+  border: 1px solid #f59e0b !important;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2) !important;
+}
+
+/* 🔴 TIER 1 ELITE THEME (2,500+ Points) */
+html.theme-tier-1,
+body.theme-tier-1,
+#root.theme-tier-1,
+#root.theme-tier-1>div {
+  background-color: #0a0000 !important;
+  background-image:
+    linear-gradient(rgba(239, 68, 68, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239, 68, 68, 0.04) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
+}
+
+body.theme-tier-1 .bg-gray-800\/80,
+body.theme-tier-1 .bg-gray-800\/60,
+body.theme-tier-1 .card {
+  background-color: rgba(20, 0, 0, 0.90) !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  box-shadow: 0 0 18px rgba(239, 68, 68, 0.12), inset 0 0 8px rgba(239, 68, 68, 0.05) !important;
+}
+
+body.theme-tier-1 h1 {
+  background-image: linear-gradient(to right, #ef4444, #f87171, #dc2626) !important;
+  text-shadow: 0 0 30px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* ⚡ THE MYTHIC NEON THEME (Lootbox Jackpot) */
+html.theme-neon,
+body.theme-neon,
+#root.theme-neon,
+#root.theme-neon>div,
+body.theme-neon .bg-gray-900,
+body.theme-neon .bg-gray-950,
+body.theme-neon .min-h-screen {
+  background-color: #050014 !important;
+  background-image:
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px) !important;
+  background-size: 30px 30px !important;
+}
+
+body.theme-neon .bg-gray-800\/80,
+body.theme-neon .bg-gray-800\/60,
+body.theme-neon .card {
+  background-color: rgba(10, 0, 25, 0.85) !important;
+  border-color: #ff00ff !important;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.15), inset 0 0 10px rgba(0, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+body.theme-neon h1 {
+  background-image: none !important;
+  color: #fff !important;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0ff, 0 0 40px #0ff, 0 0 80px #0ff !important;
+}
+
+body.theme-neon input,
+body.theme-neon select {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border-color: rgba(0, 255, 255, 0.5) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2) !important;
+  color: #0ff !important;
+}
+
+body.theme-neon input:focus,
+body.theme-neon select:focus {
+  border-color: #ff00ff !important;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.4) !important;
+}
+
+/* =========================================
+   TIER 1 ELITE (CYBER-GOLD AESTHETIC)
+========================================= */
+
+/* The VIP Lounge Base */
+body.theme-tier-1,
+#root.theme-tier-1,
+#root.theme-tier-1>div,
+body.theme-tier-1 .min-h-screen {
+  background-color: #050505 !important;
+  /* A luxurious gold spotlight hitting the top of the screen */
+  background-image: radial-gradient(circle at 50% 0%, #1a1500 0%, #050505 80%) !important;
+  color: #fde68a !important;
+}
+
+/* Elegant VIP Cards */
+body.theme-tier-1 .bg-gray-800\/80,
+body.theme-tier-1 .bg-gray-800\/60,
+body.theme-tier-1 .bg-gray-700\/40,
+body.theme-tier-1 .card {
+  background-color: rgba(15, 12, 0, 0.85) !important;
+  border: 1px solid rgba(251, 191, 36, 0.3) !important;
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.1) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+/* The Grand Title */
+body.theme-tier-1 h1 {
+  background-image: linear-gradient(to right, #fde68a, #f59e0b, #b45309) !important;
+  color: transparent !important;
+  text-shadow: 0 0 25px rgba(245, 158, 11, 0.3) !important;
+}
+
+/* Override all text to Gold/Amber */
+body.theme-tier-1 p,
+body.theme-tier-1 span,
+body.theme-tier-1 h2,
+body.theme-tier-1 h3,
+body.theme-tier-1 div {
+  color: #fcd34d !important;
+}
+
+/* Stripping the playful colors */
+body.theme-tier-1 .from-violet-600,
+body.theme-tier-1 .from-cyan-600,
+body.theme-tier-1 .text-violet-300,
+body.theme-tier-1 .text-cyan-300 {
+  background: linear-gradient(to bottom right, #f59e0b, #78350f) !important;
+  border: 1px solid #fde68a !important;
+  color: #fff !important;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Inputs & Buttons */
+body.theme-tier-1 input,
+body.theme-tier-1 select {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+  color: #fde68a !important;
+}
+
+body.theme-tier-1 input:focus,
+body.theme-tier-1 select:focus {
+  border: 1px solid #f59e0b !important;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4) !important;
+  outline: none !important;
+}
+
+/* Primary Buttons */
+body.theme-tier-1 .btn-primary,
+body.theme-tier-1 button.bg-violet-600 {
+  background-color: #f59e0b !important;
+  color: #000 !important;
+  font-weight: 900 !important;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4) !important;
+}
+
+body.theme-tier-1 .btn-primary:hover,
+body.theme-tier-1 button.bg-violet-600:hover {
+  background-color: #fde68a !important;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.6) !important;
+}
+
+/* Powerplay Inferno Override */
+body.theme-tier-1 .powerplay-inferno::before {
+  background: #f59e0b !important;
+  opacity: 0.3;
+}
+
+/* 🔥 THE POWERPLAY INFERNO ENGINE */
+@keyframes flameGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px #f97316, inset 0 0 10px #ef4444, 0 0 40px rgba(249, 115, 22, 0.4);
+    border-color: #f97316;
+  }
+
+  50% {
+    box-shadow: 0 0 40px #ff0000, inset 0 0 20px #f97316, 0 0 60px rgba(239, 68, 68, 0.6);
+    border-color: #ef4444;
+  }
+}
+
+@keyframes firePulse {
+
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.35;
+    transform: scale(1.02);
+  }
+}
+
+/* Apply this wrapper class when Powerplay is active */
+.powerplay-inferno {
+  position: relative;
+  animation: flameGlow 1.5s infinite alternate ease-in-out;
+  border-radius: 1rem;
+}
+
+.powerplay-inferno::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(0deg, #ff0000, #f97316, #eab308);
+  border-radius: 1.2rem;
+  z-index: -1;
+  opacity: 0.7;
+  filter: blur(6px);
+}
+
+/* Background flame textures */
+.powerplay-bg-fire {
+  background-image: radial-gradient(circle at bottom, rgba(239, 68, 68, 0.15) 0%, transparent 70%) !important;
+  animation: firePulse 2s infinite ease-in-out;
+}
