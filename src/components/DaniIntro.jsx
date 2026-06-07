@@ -1,26 +1,36 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// The 4-Minute Master Plan Script
+// The 4-Minute Master Plan Script (The Midnight Birthday Edition)
 const SCRIPT = [
     // ── [0:00] Intro: Acoustic guitar starts, cold terminal text ──
     "System initializing...",
     "Biometric signature recognized.",
     "Hello, wifey.",
 
-    // ── [0:30] Acknowledging the Burnout ──
+    // ── [0:25] Acknowledging the Burnout ──
     "I know how heavy the pressure has felt lately.",
     "The endless algorithms, the late-night debugging, the weight of our goals...",
     "It is so easy to lose the spark when you are carrying the weight of the future.",
     "But babe, I built this arena so you never have to carry it alone.",
 
-    // ── [1:10] The Distance & The Promises ──
+    // ── [0:58] The Midnight Gratitude & The Apology ──
+    "Before we look at the future, I need to say thank you.",
+    "For the early wishes, and watching your happiness increase out of bounds every second nearing 12 AM.",
+    "That cute video call birthday celebration, seeing the pure love in your eyes... it brought me to tears.",
+    "You made today so incredibly special for me.",
+    "And I also need to say I am so sorry.",
+    "I am sorry for the times I let my stress turn into anger, and for my mistakes.",
+    "When I was at my worst, you didn't leave. You just loved me harder.",
+
+    // ── [1:55] The Gift & The Distance ──
+    "That is exactly why I built this entire system.",
+    "This Arena isn't just code. It is my surprise gift to you.",
     "Soon, I'll be boarding a flight to the UK.",
     "There will be oceans and time zones between us.",
     "But distance means absolutely nothing to a bond like ours.",
-    "I am here for you, anytime, no matter the hour.",
     "Every time you log into this system, I am right beside you.",
 
-    // ── [1:45] CHORUS SWELLS: "Baby, I'm dancing in the dark..." ──
+    // ── [2:45] CHORUS SWELLS: "Baby, I'm dancing in the dark..." ──
     // ── VISUAL CUE 1: Portrait 1 (The Past/Present) slowly fades in at 15% opacity ──
     "We aren't just writing lines of code.",
     "Every problem we solve is a brick in the foundation of our empire.",
@@ -28,7 +38,7 @@ const SCRIPT = [
     "So promise me something.",
     "Promise me you will never quit. Never skip a day of the grind.",
 
-    // ── [2:30] The Master Plan ──
+    // ── [3:25] The Master Plan ──
     // ── VISUAL CUE 2: Portrait 1 fades out, Portrait 2 (The Future) fades in ──
     "When it gets hard, promise me you won't lose confidence.",
     "Trust the process. Trust our master plan.",
@@ -36,13 +46,13 @@ const SCRIPT = [
     "We prove to our parents exactly what we are capable of.",
     "And then... the timeline converges.",
 
-    // ── [3:10] The 2028 Vision ──
+    // ── [4:06] The 2028 Vision ──
     "September 2028.",
     "You pack your bags. You board that flight.",
     "No more screens. No more waiting.",
     "Just you, me, and the life we fought so incredibly hard to build.",
 
-    // ── [3:40] The Climax & Final Words ──
+    // ── [4:38] The Climax & Final Words ──
     "I am so incredibly proud of the woman you are.",
     "You are my partner, my soulmate, my everything.",
     "I love you, Dani, My Babe. More than words or code could ever express.",
@@ -57,7 +67,7 @@ export default function DaniIntro({ onComplete, isReplay = false }) {
     const [showPortrait2, setShowPortrait2] = useState(false);
 
     // Audio setup - replace 'your-music.mp3' with a real file in your public folder!
-    const audioRef = useRef(new Audio('/Perfect.flac'));
+    const audioRef = useRef(new Audio('/Perfect.mp3'));
 
     const beginCinematic = () => {
         setHasStarted(true);
@@ -86,8 +96,8 @@ export default function DaniIntro({ onComplete, isReplay = false }) {
             setIsFading(false);
 
             // Dual portrait crossfade triggers
-            if (step === 11) setShowPortrait1(true);
-            if (step === 18) {
+            if (step === 20) setShowPortrait1(true);
+            if (step === 25) {
                 setShowPortrait1(false);
                 setShowPortrait2(true);
             }
@@ -95,12 +105,12 @@ export default function DaniIntro({ onComplete, isReplay = false }) {
             // Hold each line for 7s to pace the 4:20 song
             const holdTimer = setTimeout(() => {
                 setIsFading(true);
-            }, 7000);
+            }, 5600);
 
             // Advance to next line after 8.2s
             const nextStepTimer = setTimeout(() => {
                 setStep(prev => prev + 1);
-            }, 8200);
+            }, 6800);
 
             return () => {
                 clearTimeout(holdTimer);
