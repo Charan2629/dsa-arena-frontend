@@ -13,6 +13,8 @@ import { toast } from 'react-toastify';
 
 const socket = io(import.meta.env.VITE_API_URL);
 
+
+
 // ---------------------------------------------------------------------------
 // HP Bar
 // ---------------------------------------------------------------------------
@@ -493,6 +495,17 @@ export default function ArenaDashboard({ players, fetchPlayers, triggerReplay })
   // Cinematic state: null | { rankName, quote, themeKey, scoreKey, scoreValue }
   const [cinematic, setCinematic] = useState(null);
   const [isUnderAttack, setIsUnderAttack] = useState(false);
+
+  // ── THE DEVELOPER CONSOLE EASTER EGG ──
+  useEffect(() => {
+    if (authUser && authUser.username && authUser.username.toLowerCase() === 'dani') {
+      const consoleStyle = "color: #fbbf24; font-size: 16px; font-weight: bold; font-family: monospace; padding: 12px; border: 1px dashed #fbbf24; background: rgba(10, 10, 10, 0.9); text-shadow: 0 0 8px rgba(245, 158, 11, 0.4); border-radius: 8px;";
+
+      console.log("%c[ SYSTEM DIAGNOSTICS: ZERO ERRORS FOUND ]", consoleStyle);
+      console.log("%cNice try looking for bugs, my architect. There are no errors here—just like my decision to build this life with you. Keep grinding. I will see you in the UK in 2028. Now close this console and come back to the video call so I can look at you.", consoleStyle);
+    }
+  }, [authUser]);
+
   const fetchLedger = useCallback(async () => {
     try {
       const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/solves`);
@@ -663,9 +676,9 @@ export default function ArenaDashboard({ players, fetchPlayers, triggerReplay })
 
       // Trigger the synchronized audio
       if (data.solver === authUser?.username) {
-        new Audio('/sounds/bass-drop.mp3').play().catch(() => {});
+        new Audio('/sounds/bass-drop.mp3').play().catch(() => { });
       } else {
-        new Audio('/sounds/warning-siren.mp3').play().catch(() => {});
+        new Audio('/sounds/warning-siren.mp3').play().catch(() => { });
       }
     });
 
