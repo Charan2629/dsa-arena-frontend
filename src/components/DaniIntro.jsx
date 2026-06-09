@@ -56,7 +56,10 @@ const SCRIPT = [
     "I am so incredibly proud of the woman you are.",
     "You are my partner, my soulmate, my everything.",
     "I love you, Dani, My Babe. More than words or code could ever express.",
-    "Welcome to the Arena. Let's conquer the world together."
+    "Welcome to the Arena. Let's conquer the world together.",
+
+    // ── THE DIRECTOR'S CUT HIDDEN MESSAGE ──
+    "P.S. Seeing your smile on that video call just now was the best part of my year. Let's watch this again."
 ];
 
 export default function DaniIntro({ onComplete, isReplay = false }) {
